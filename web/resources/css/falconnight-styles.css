@@ -1,0 +1,71 @@
+/* falconnight-style.css By Caroline Kim */
+
+body {
+    background-color: khaki;
+}
+
+h1 {
+    text-align: center;
+    color: blue;
+}
+
+fieldset {
+    margin-bottom: 15px;
+    border-color: blue;
+}
+
+legend {
+    font-weight: bold;
+    font-family: arial;
+    color: blue;
+}
+
+#container {
+    display: table;
+    margin: 20px auto;
+    text-align: center;
+}
+
+.people-table {
+    border-collapse: collapse;
+    margin: 20px auto;
+}
+
+.people-table-header {
+    text-align: center;
+    color: #DDD;
+    background-color: #333F48;
+    border-bottom: 1px solid #BBB;
+    padding: 18px;
+}
+
+.people-table-odd-row {
+    text-align: center;
+    background-color: #FFF;
+    border-top: 1px solid #BBB;
+    padding-right: 5px;
+}
+
+.people-table-even-row {
+    text-align: center;
+    background-color: #CFF;
+    border-top: 1px solid #BBB;
+    padding-right: 5px;
+}
+
+.datestyle {
+    padding-right: 15px;
+}
+
+.inputID{
+    text-align: center;
+    font-weight: bold;
+    width: 40px;
+    margin-right: 5px;
+    background-color: moccasin;
+}
+
+.commandButton {
+    background-color: #F2A900;
+    font-weight: bold;
+}

@@ -1,0 +1,85 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <h:outputStylesheet library="css" name="falconnight-styles.css"/>
+    </h:head>
+    <h:body>
+        <div id="container">
+            <h1>People</h1>
+            <fieldset>
+                <legend>Create</legend>
+                <h:form id="jdbcCreateForm">
+                    <h3>Person to Create</h3>
+                    <h:inputText value="#{createBean.person.name}"/>
+                    <h:inputText value="#{createBean.person.nickname}"/>
+                    <h:commandButton value="Create" styleClass="commandButton"
+                                     action="#{createBean.performCreate()}"/>
+                </h:form>
+            </fieldset>
+            
+            <fieldset>
+                <legend>Read</legend>
+                <h:dataTable value="#{readBean.performRead()}" var="p"
+                             headerClass="people-table-header"
+                             styleClass="people-table"
+                             rowClasses="people-table-odd-row, people-table-even-row">
+                    <h:column>
+                        <f:facet name="header">
+                            Person ID
+                        </f:facet>
+                        #{p.personID}
+                    </h:column>
+                    
+                    <h:column>
+                        <f:facet name="header">
+                            Name
+                        </f:facet>
+                        #{p.name}
+                    </h:column>
+                    
+                    <h:column>
+                        <f:facet name="header">
+                            Nickname
+                        </f:facet>
+                        #{p.nickname}
+                    </h:column>
+                    
+                    <h:column>
+                        <f:facet name="header">
+                            Date
+                        </f:facet>
+                        <h:outputText value="#{p.created_date}" styleClass="datestyle">
+                            <f:convertDateTime pattern="dd-mmm-yyyy"/>
+                        </h:outputText>
+                    </h:column>
+                </h:dataTable>
+            </fieldset>
+            
+            <fieldset>
+                <legend>Update</legend>
+                <h:form id="jdbcUpdateForm">
+                    <h3>Person Info to Update</h3>
+                    <h:inputText value="#{updateBean.person.personID}" styleClass="inputID" />
+                    <h:inputText value="#{updateBean.person.name}" />
+                    <h:inputText value="#{updateBean.person.nickname}" />
+                    <h:commandButton value="Update" styleClass="commandButton"
+                                     action="#{updateBean.performUpdate()}" />
+                </h:form>
+            </fieldset>
+            <fieldset>
+                <legend>Delete</legend>
+                <h:form id="jdbcDeleteForm">
+                    <h3>Person ID to Delete</h3>
+                    <h:inputText value="#{deleteBean.person.personID}" styleClass="inputID" />
+                    <h:commandButton value="Delete" styleClass="commandButton"
+                                     action="#{deleteBean.performDelete()}" />
+                </h:form>
+            </fieldset>
+        </div>
+    </h:body>
+</html>
+
